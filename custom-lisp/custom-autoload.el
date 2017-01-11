@@ -5,4 +5,10 @@
   (interactive)
   (message (buffer-file-name)))
 
+(defun server-shutdown ()
+  "Save buffers, Quit and Shutdown (kill) server"
+  (interactive)
+  (save-some-buffers)
+  (kill-emacs))
+
 (provide 'custom-autoload)

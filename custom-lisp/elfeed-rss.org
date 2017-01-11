@@ -1,0 +1,12 @@
+* blogs                                                        :elfeed:
+** daily                                                        :daily:
+*** http://telescoper.wordpress.com/feed/
+*** http://xkcd.com/rss.xml
+*** http://timharford.com/feed/
+*** http://understandinguncertainty.org/rss.xml
+** emacs                                                        :emacs:
+*** http://www.reddit.com/r/emacs/.rss
+*** http://planet.emacsen.org/atom.xml
+*** http://feeds.feedburner.com/XahsEmacsBlog
+*** http://pragmaticemacs.com/feed/
+*** [[http://emacs.stackexchange.com/feeds][SX]]

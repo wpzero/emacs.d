@@ -59,5 +59,21 @@
   "Show file full path to echo"
   t)
 
+(autoload 'server-shutdown "custom-autoload"
+  "Save buffers, Quit, and Shutdown (kill) server"
+  t)
+
+;;; A custom minor mode
+;; (require 'wp-refill-mode-init)
+
+;;; elfeed rss feed read for emacs
+(add-to-list 'load-path (expand-file-name "custom-lisp/elfeed-package" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "custom-lisp/elfeed-org" user-emacs-directory))
+(load "elfeed.el")
+(load "elfeed-org.el")
+(require 'elfeed-org)
+(elfeed-org)
+(setq rmh-elfeed-org-files (list (expand-file-name "custom-lisp/elfeed-rss.org" user-emacs-directory)))
+
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 (provide 'custom-init)
