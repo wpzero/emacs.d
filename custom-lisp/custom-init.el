@@ -50,6 +50,15 @@
         (kill-region (region-beginning) (region-end))))
      (t (delete-backward-char 1)))))
 
+;;; paste or paste previouse
+;; (defun past-or-past-previouse ()
+;;   "Paste. When called repeatedly, paste previous. This command calls `yank', and if repeated, call `yank-pop'."
+;;   (interactive)
+;;   (progn
+;;     (when (and delete-selection-mode (region-active-p))
+;;       (delete-region (region-beginning) (region-end)))
+;;     (if (or (eq real-last-command)))))
+
 ;; autoload usage
 ;; 1. first param is the function name
 ;; 2. second param is the file name

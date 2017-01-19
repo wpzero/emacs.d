@@ -9,4 +9,7 @@
 *** http://planet.emacsen.org/atom.xml
 *** http://feeds.feedburner.com/XahsEmacsBlog
 *** http://pragmaticemacs.com/feed/
+*** http://ergoemacs.org/emacs/blog.xml
 *** [[http://emacs.stackexchange.com/feeds][SX]]
+** programming                                                                  :programming:
+*** http://www.reddit.com/r/programming/.rss
