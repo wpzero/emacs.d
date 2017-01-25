@@ -11,4 +11,14 @@
   (save-some-buffers)
   (kill-emacs))
 
+(defun open-custom-init-file ()
+  "Open custom init file"
+  (interactive)
+  (find-file "~/.emacs.d/custom-lisp/custom-init.el"))
+
+(defun open-init-file ()
+  "Open init file"
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
 (provide 'custom-autoload)

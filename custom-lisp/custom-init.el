@@ -72,6 +72,17 @@
   "Save buffers, Quit, and Shutdown (kill) server"
   t)
 
+(autoload 'open-init-file "custom-autoload"
+  "Open init file"
+  t)
+
+(autoload 'open-custom-init-file "custom-autoload"
+  "Open custom init file"
+  t)
+
+;;; Some custom settings
+(setq make-backup-files nil)
+
 ;;; A custom minor mode
 ;; (require 'wp-refill-mode-init)
 
@@ -83,6 +94,10 @@
 (require 'elfeed-org)
 (elfeed-org)
 (setq rmh-elfeed-org-files (list (expand-file-name "custom-lisp/elfeed-rss.org" user-emacs-directory)))
+
+;;; neotree settings
+(add-to-list 'load-path (expand-file-name "custom-lisp/emacs-neotree" user-emacs-directory))
+(require 'neotree)
 
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 (provide 'custom-init)
