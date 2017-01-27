@@ -80,6 +80,26 @@
   "Open custom init file"
   t)
 
+(autoload 'wrap-char-region "custom-autoload"
+  "Wrap insert a char"
+  t)
+
+(autoload 'select-current-word "custom-autoload"
+  "Select current word"
+  t)
+
+(autoload 'select-current-line "custom-autoload"
+  "Select current line"
+  t)
+
+(autoload 'select-next-line "custom-autoload"
+  "Select next line"
+  t)
+
+(autoload 'select-text-in-quote "custom-autoload"
+  "Select text in quote"
+  t)
+
 ;;; Some custom settings
 (setq make-backup-files nil)
 
