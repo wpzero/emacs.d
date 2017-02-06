@@ -47,13 +47,20 @@
             (insert str)
             (goto-char (- region-end 1))
             (delete-char 1)
-            (insert str))
+            (insert (get-delimiter-other-part-char str)))
         (progn
           (goto-char region-beginning)
           (insert str)
           (goto-char (+ region-end 1))
-          (insert str)
+          (insert (get-delimiter-other-part-char str))
           )))))
+
+(defun get-delimiter-other-part-char (str)
+  "Return the other part of str if str is ( or {"
+  (let ((delimiter-list '(("(" . ")") ("{" . "}"))))
+    (if (assoc str delimiter-list)
+        (cdr (assoc str delimiter-list))
+      str)))
 
 ;;; Mark current word
 (defun select-current-word ()
