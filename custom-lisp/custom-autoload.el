@@ -136,6 +136,18 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
   (interactive)
   (search-forward-regexp (regexp-opt wp-right-brackets) nil t))
 
+(defun goto-matching-bracket ()
+  "Move cursor to the matching bracket."
+  (interactive)
+  (if (nth 3 (syntax-ppss))
+      (backward-up-list 1 'ESCAPE-STRING 'NO-SYNTAX-CROSSING)
+    (cond
+     ((eq (char-after) ?\") (forward-sexp))
+     ((eq (char-before) ?\") (backward-sexp))
+     ((looking-at (regexp-opt wp-left-brackets)) (forward-sexp))
+     ((looking-back (regexp-opt wp-right-brackets)) (backward-sexp))
+     (t (backward-up-list 1 'ESCAPE-STRING 'NO-SYNTAX-CROSSING)))))
+
 (provide 'custom-autoload)
 
 

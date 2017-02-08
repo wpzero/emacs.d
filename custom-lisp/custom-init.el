@@ -108,6 +108,10 @@
   "Backward to next occurrence of the right brackets"
   t)
 
+(autoload 'goto-matching-bracket "custom-autoload"
+  "Move cursor to the matching bracket"
+  t)
+
 ;;; Some custom settings
 (setq make-backup-files nil)
 
