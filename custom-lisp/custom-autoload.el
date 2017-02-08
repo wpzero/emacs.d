@@ -101,6 +101,40 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
     (setq -pos (point))
     (skip-chars-forward -skip-chars)
     (set-mark -pos)))
+;;; Backward or forward bracket
+(defvar wp-brackets nil "string of left/right brackets pairs")
+
+(setq wp-brackets "()[]{}<>（）［］｛｝⦅⦆〚〛⦃⦄“”‘’‹›«»「」〈〉《》【】〔〕⦗⦘『』〖〗〘〙｢｣⟦⟧⟨⟩⟪⟫⟮⟯⟬⟭⌈⌉⌊⌋⦇⦈⦉⦊❛❜❝❞❨❩❪❫❴❵❬❭❮❯❰❱❲❳〈〉⦑⦒⧼⧽﹙﹚﹛﹜﹝﹞⁽⁾₍₎⦋⦌⦍⦎⦏⦐⁅⁆⸢⸣⸤⸥⟅⟆⦓⦔⦕⦖⸦⸧⸨⸩｟｠⧘⧙⧚⧛⸜⸝⸌⸍⸂⸃⸄⸅⸉⸊᚛᚜༺༻༼༽⏜⏝⎴⎵⏞⏟⏠⏡﹁﹂﹃﹄︹︺︻︼︗︘︿﹀︽︾﹇﹈︷︸")
+
+(defvar wp-left-brackets nil "list of left brackets chars")
+
+(progn
+  (setq wp-left-brackets '())
+  (dotimes (x (length wp-brackets))
+    (when (= (% x 2) 0)
+      (push (char-to-string (elt wp-brackets x))
+            wp-left-brackets)))
+  (setq wp-left-brackets (reverse wp-left-brackets)))
+
+(defvar wp-right-brackets nil "list of left brackets chars")
+
+(progn
+  (setq wp-right-brackets '())
+  (dotimes (x (length wp-brackets))
+    (when (= (% x 2) 1)
+      (push (char-to-string (elt wp-brackets x))
+            wp-right-brackets)))
+  (setq wp-right-brackets (reverse wp-right-brackets)))
+
+(defun backward-left-bracket ()
+  "Move cursor to the previous occurrence of left brackets"
+  (interactive)
+  (search-backward-regexp (regexp-opt wp-left-brackets) nil t))
+
+(defun forward-right-bracket ()
+  "Move cursor to the next occurrence of right brackets"
+  (interactive)
+  (search-forward-regexp (regexp-opt wp-right-brackets) nil t))
 
 (provide 'custom-autoload)
 

@@ -100,6 +100,14 @@
   "Select text in quote"
   t)
 
+(autoload 'forward-right-bracket "custom-autoload"
+  "Forward to previous occurrence of the left brackets"
+  t)
+
+(autoload 'backward-left-bracket "custom-autoload"
+  "Backward to next occurrence of the right brackets"
+  t)
+
 ;;; Some custom settings
 (setq make-backup-files nil)
 
