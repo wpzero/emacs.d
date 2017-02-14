@@ -112,6 +112,14 @@
   "Move cursor to the matching bracket"
   t)
 
+(autoload 'sudo-find-file "custom-autoload"
+  "Opens file with root privileges."
+  t)
+
+(autoload 'sudo-remote-find-file "custom-autoload"
+  "Opens remote file with root privileges."
+  t)
+
 ;;; Some custom settings
 (setq make-backup-files nil)
 

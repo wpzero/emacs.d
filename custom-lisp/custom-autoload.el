@@ -148,6 +148,21 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
      ((looking-back (regexp-opt wp-right-brackets)) (backward-sexp))
      (t (backward-up-list 1 'ESCAPE-STRING 'NO-SYNTAX-CROSSING)))))
 
+(defun sudo-find-file (file)
+  "Opens FILE with root privileges."
+  (interactive "FFind file: ")
+  (set-buffer
+   (find-file (concat "/sudo::" (expand-file-name file)))))
+(global-set-key (kbd "C-c f") 'sudo-find-file)
+
+(defun sudo-remote-find-file (file)
+  "Opens repote FILE with root privileges."
+  (interactive "FFind file: ")
+  (setq begin (replace-regexp-in-string  "scp" "ssh" (car (split-string file ":/"))))
+  (setq end (car (cdr (split-string file "@"))))
+  (set-buffer
+   (find-file (format "%s" (concat begin "|sudo:root@" end)))))
+
 (provide 'custom-autoload)
 
 
