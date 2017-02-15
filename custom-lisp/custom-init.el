@@ -120,6 +120,22 @@
   "Opens remote file with root privileges."
   t)
 
+(autoload 'sudo-file "custom-autoload"
+  "Open current file with sudo"
+  t)
+
+(autoload 'pbcopy "custom-autoload"
+  "Copy region text to system clipboard"
+  t)
+
+(autoload 'pbcut "custom-autoload"
+  "Cut region text to system clipboard"
+  t)
+
+(autoload 'pbpaste "custom-autoload"
+  "Past clipboard"
+  t)
+
 ;;; Some custom settings
 (setq make-backup-files nil)
 

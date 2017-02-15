@@ -153,17 +153,46 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
   (interactive "FFind file: ")
   (set-buffer
    (find-file (concat "/sudo::" (expand-file-name file)))))
-(global-set-key (kbd "C-c f") 'sudo-find-file)
 
 (defun sudo-remote-find-file (file)
-  "Opens repote FILE with root privileges."
+  "Opens remote FILE with root privileges."
   (interactive "FFind file: ")
   (setq begin (replace-regexp-in-string  "scp" "ssh" (car (split-string file ":/"))))
   (setq end (car (cdr (split-string file "@"))))
   (set-buffer
    (find-file (format "%s" (concat begin "|sudo:root@" end)))))
 
+(defun sudo-file ()
+  "Open current file with sudo"
+  (interactive)
+  (let ((file (buffer-file-name)))
+    (if file
+        (if (and (numberp (string-match (regexp-quote "/ssh") file)) (= 0 (string-match (regexp-quote "/ssh")) file))
+            (sudo-remote-find-file file)
+          (sudo-find-file file))
+      (message "current buffer is not a file"))))
+
+(defun pbcopy ()
+  "Copy region text to system clipboard"
+  (interactive)
+  (call-process-region (point) (mark) "pbcopy")
+  (setq deactivate-mark t))
+
+(defun pbcut ()
+  "Cut region text to system clipboard"
+  (interactive)
+  (pbcopy)
+  (delete-region (region-beginning) (region-end)))
+
+(defun pbpaste ()
+  "Paste clipboard text to emacs"
+  (interactive)
+  (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+
 (provide 'custom-autoload)
+
+
+
 
 
 
