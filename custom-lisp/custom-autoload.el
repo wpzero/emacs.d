@@ -189,5 +189,4 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
   (interactive)
   (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
 
-
 (provide 'custom-autoload)
