@@ -1,6 +1,9 @@
 ;; Set the comment, comment line, a very cool feature
 (global-set-key (kbd "C-x \/") 'comment-line) ;comment-line
 (global-set-key (kbd "M-;") 'comment-dwim)  ; comment-dwin
+;;; Set default google translate source and target language
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "zh-CN")
 
 ;; The command is used to visit the symbol linked file instead of the symbol file
 (defun visit-target-instead ()
