@@ -16,6 +16,11 @@
   (interactive)
   (find-file "~/.emacs.d/custom-lisp/custom-init.el"))
 
+(defun open-custom-auto-file ()
+  "Open custom autload file"
+  (interactive)
+  (find-file "~/.emacs.d/custom-lisp/custom-autoload.el"))
+
 (defun open-init-file ()
   "Open init file"
   (interactive)
@@ -167,7 +172,7 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
   (interactive)
   (let ((file (buffer-file-name)))
     (if file
-        (if (and (numberp (string-match (regexp-quote "/ssh") file)) (= 0 (string-match (regexp-quote "/ssh")) file))
+        (if (and (numberp (string-match (regexp-quote "/ssh") file)) (= 0 (string-match (regexp-quote "/ssh") file)))
             (sudo-remote-find-file file)
           (sudo-find-file file))
       (message "current buffer is not a file"))))
@@ -188,6 +193,5 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
   "Paste clipboard text to emacs"
   (interactive)
   (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
-
 
 (provide 'custom-autoload)

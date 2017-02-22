@@ -80,6 +80,10 @@
   "Open custom init file"
   t)
 
+(autoload 'open-custom-auto-file "custom-autoload"
+  "Open custom autoload file"
+  t)
+
 (autoload 'wrap-char-region "custom-autoload"
   "Wrap insert a char"
   t)
