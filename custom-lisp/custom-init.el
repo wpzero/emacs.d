@@ -162,5 +162,7 @@
 (add-to-list 'load-path (expand-file-name "custom-lisp/emacs-neotree" user-emacs-directory))
 (require 'neotree)
 
+;;; rvm settings
+(require 'rvm)
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 (provide 'custom-init)
