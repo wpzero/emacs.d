@@ -164,5 +164,8 @@
 
 ;;; rvm settings
 (require 'rvm)
+
+;;; rubocop settings
+(require 'rubocop)
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 (provide 'custom-init)
