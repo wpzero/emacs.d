@@ -4,6 +4,9 @@
 ;;; Set default google translate source and target language
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "zh-CN")
+;;; Set key bindings for mc
+(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
 
 ;; The command is used to visit the symbol linked file instead of the symbol file
 (defun visit-target-instead ()
