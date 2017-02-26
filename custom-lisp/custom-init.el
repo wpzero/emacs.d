@@ -172,5 +172,27 @@
 
 ;;; rubocop settings
 (require 'rubocop)
+
+;;; set ssh mysql
+;; (require 'sql)
+
+;; (defun staging-sql (orig-fun &rest args)
+;;   "SSH Staging, then connect"
+;;   (let ((default-directory "/ssh:cns1:"))
+;;     (apply orig-fun args)))
+
+;; (defun local-sql (orig-fun &rest args)
+;;   "local connect"
+;;   (let ((default-directory "/Users/wpzero"))
+;;     (apply orig-fun args)))
+
+;; (advice-add 'sql-mysql :around #'local-sql)
+
+;; (advice-remove 'sql-mysql #'local-sql)
+
+;; (advice-add 'sql-mysql :around #'staging-sql)
+
+;; (advice-remove 'sql-mysql #'staging-sql)
+
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 (provide 'custom-init)
