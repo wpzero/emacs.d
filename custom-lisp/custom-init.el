@@ -2,8 +2,8 @@
 (global-set-key (kbd "C-x \/") 'comment-line) ;comment-line
 (global-set-key (kbd "M-;") 'comment-dwim)  ; comment-dwin
 ;;; Set key bindings for mc
-(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
 ;;; Set key binding for google translate
 (global-set-key (kbd "C-c C-t") 'google-translate-query-translate)
 ;;; Set default google translate source and target language
@@ -148,6 +148,17 @@
   "Past clipboard"
   t)
 
+(autoload 'scroll-up-half "custom-autoload"
+  "Scroll up window half page"
+  t)
+
+(autoload 'scroll-down-half "custom-autoload"
+  "Scroll down window half page"
+  t)
+
+(global-set-key (kbd "C-v") 'scroll-up-half) ; scroll up half
+(global-set-key (kbd "M-v") 'scroll-down-half)  ; scroll down half
+
 ;;; Some custom settings
 (setq make-backup-files nil)
 
@@ -173,26 +184,7 @@
 ;;; rubocop settings
 (require 'rubocop)
 
-;;; set ssh mysql
-;; (require 'sql)
-
-;; (defun staging-sql (orig-fun &rest args)
-;;   "SSH Staging, then connect"
-;;   (let ((default-directory "/ssh:cns1:"))
-;;     (apply orig-fun args)))
-
-;; (defun local-sql (orig-fun &rest args)
-;;   "local connect"
-;;   (let ((default-directory "/Users/wpzero"))
-;;     (apply orig-fun args)))
-
-;; (advice-add 'sql-mysql :around #'local-sql)
-
-;; (advice-remove 'sql-mysql #'local-sql)
-
-;; (advice-add 'sql-mysql :around #'staging-sql)
-
-;; (advice-remove 'sql-mysql #'staging-sql)
-
+;;; require mysql init
+(when (file-exists-p (expand-file-name "custom-lisp/my-mysql-init.el" user-emacs-directory)) (require 'my-mysql-init))
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 (provide 'custom-init)
