@@ -187,4 +187,13 @@
 ;;; require mysql init
 (when (file-exists-p (expand-file-name "custom-lisp/my-mysql-init.el" user-emacs-directory)) (require 'my-mysql-init))
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
+
+;;; my c develop environment setup
+(require 'my-c-init)
+
+;;; set start / end buffer key binding
+;;; for reset gtag package key binding
+(global-set-key (kbd "M-<") 'beginning-of-buffer)
+(global-set-key (kbd "M->") 'end-of-buffer)
+
 (provide 'custom-init)
