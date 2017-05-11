@@ -191,9 +191,13 @@
 ;;; my c develop environment setup
 (require 'my-c-init)
 
-;;; set start / end buffer key binding
-;;; for reset gtag package key binding
-(global-set-key (kbd "M-<") 'beginning-of-buffer)
-(global-set-key (kbd "M->") 'end-of-buffer)
+;;; my custom kbd
+(require 'my-keys-minor-mode)
+
+;;; tab related, for overriding company config
+(define-key c-mode-map  (kbd "C-<tab>") 'company-complete)
+(define-key c++-mode-map (kbd "C-<tab>") 'company-complet)
+(define-key c-mode-map  (kbd "<tab>") 'indent-for-tab-command)
+(define-key c++-mode-map (kbd "<tab>") 'indent-for-tab-command)
 
 (provide 'custom-init)
