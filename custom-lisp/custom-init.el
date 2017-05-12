@@ -190,6 +190,12 @@
 
 ;;; my c develop environment setup
 (require 'my-c-init)
+;;; overwrite some kbd settings
+(progn
+  ;; modify ggtags some key
+  (require 'ggtags)
+  (define-key ggtags-navigation-map (kbd "M->") 'end-of-buffer)
+  (define-key ggtags-navigation-map (kbd "M-<") 'beginning-of-buffer))
 
 ;;; my custom kbd
 (require 'my-keys-minor-mode)
@@ -199,5 +205,6 @@
 (define-key c++-mode-map (kbd "C-<tab>") 'company-complet)
 (define-key c-mode-map  (kbd "<tab>") 'indent-for-tab-command)
 (define-key c++-mode-map (kbd "<tab>") 'indent-for-tab-command)
+
 
 (provide 'custom-init)
