@@ -206,5 +206,11 @@
 (define-key c-mode-map  (kbd "<tab>") 'indent-for-tab-command)
 (define-key c++-mode-map (kbd "<tab>") 'indent-for-tab-command)
 
+;;; my scheme config, paredit
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code."
+  t)
+(require 'scheme-init)
+
 
 (provide 'custom-init)

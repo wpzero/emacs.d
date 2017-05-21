@@ -3,6 +3,8 @@
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "M-<") 'beginning-of-buffer)
     (define-key map (kbd "M->") 'end-of-buffer)
+    (define-key map (kbd "C-M-s") 'isearch-forward-regexp)
+    (define-key map (kbd "C-M-r") 'isearch-backward-regexp)
     map)
   "my-keys-minor-mode keymap.")
 
