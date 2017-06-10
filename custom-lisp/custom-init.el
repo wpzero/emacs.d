@@ -216,4 +216,6 @@
 ;;; web mode setup
 (require 'web-mode)
 
+(require 'coffee-mode)
+
 (provide 'custom-init)
