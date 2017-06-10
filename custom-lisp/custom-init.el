@@ -213,4 +213,7 @@
 (require 'scheme-init)
 
 
+;;; web mode setup
+(require 'web-mode)
+
 (provide 'custom-init)
