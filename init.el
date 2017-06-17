@@ -7,6 +7,7 @@
 (when (version<= emacs-version "24")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
+(add-to-list 'load-path (expand-file-name "org" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "custom-lisp" user-emacs-directory))
 
