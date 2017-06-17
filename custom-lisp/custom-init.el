@@ -156,6 +156,10 @@
   "Scroll down window half page"
   t)
 
+(autoload 'copy-file-path "custom-autoload"
+  "Copy file path or dirpath"
+  t)
+
 (global-set-key (kbd "C-v") 'scroll-up-half) ; scroll up half
 (global-set-key (kbd "M-v") 'scroll-down-half)  ; scroll down half
 
@@ -168,6 +172,7 @@
 ;;; elfeed rss feed read for emacs
 (add-to-list 'load-path (expand-file-name "custom-lisp/elfeed-package" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "custom-lisp/elfeed-org" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "custom-lisp/org-contrib" user-emacs-directory))
 (load "elfeed.el")
 (load "elfeed-org.el")
 (require 'elfeed-org)
