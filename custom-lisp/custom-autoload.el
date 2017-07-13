@@ -227,4 +227,9 @@ Version 2017-01-27"
          (message "File path copied: 「%s」" -fpath)
          -fpath )))))
 
+(defun pretty-xml (start end)
+  "Pretty xml"
+  (interactive "r")
+  (shell-command-on-region (point-min) (point-max) "xmllint --format -" (current-buffer) t))
+
 (provide 'custom-autoload)

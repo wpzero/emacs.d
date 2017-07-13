@@ -160,6 +160,10 @@
   "Copy file path or dirpath"
   t)
 
+(autoload 'pretty-xml "custom-autoload"
+  "Pretty xml"
+  t)
+
 (global-set-key (kbd "C-v") 'scroll-up-half) ; scroll up half
 (global-set-key (kbd "M-v") 'scroll-down-half)  ; scroll down half
 
@@ -193,23 +197,23 @@
 (when (file-exists-p (expand-file-name "custom-lisp/my-mysql-init.el" user-emacs-directory)) (require 'my-mysql-init))
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 
-;;; my c develop environment setup
-(require 'my-c-init)
-;;; overwrite some kbd settings
-(progn
-  ;; modify ggtags some key
-  (require 'ggtags)
-  (define-key ggtags-navigation-map (kbd "M->") 'end-of-buffer)
-  (define-key ggtags-navigation-map (kbd "M-<") 'beginning-of-buffer))
-
 ;;; my custom kbd
 (require 'my-keys-minor-mode)
 
-;;; tab related, for overriding company config
-(define-key c-mode-map  (kbd "C-<tab>") 'company-complete)
-(define-key c++-mode-map (kbd "C-<tab>") 'company-complet)
-(define-key c-mode-map  (kbd "<tab>") 'indent-for-tab-command)
-(define-key c++-mode-map (kbd "<tab>") 'indent-for-tab-command)
+;;; my c develop environment setup
+;; (require 'my-c-init)
+;;; overwrite some kbd settings
+;; (progn
+;;   ;; modify ggtags some key
+;;   (require 'ggtags)
+;;   (define-key ggtags-navigation-map (kbd "M->") 'end-of-buffer)
+;;   (define-key ggtags-navigation-map (kbd "M-<") 'beginning-of-buffer))
+
+;; ;;; tab related, for overriding company config
+;; (define-key c-mode-map  (kbd "C-<tab>") 'company-complete)
+;; (define-key c++-mode-map (kbd "C-<tab>") 'company-complet)
+;; (define-key c-mode-map  (kbd "<tab>") 'indent-for-tab-command)
+;; (define-key c++-mode-map (kbd "<tab>") 'indent-for-tab-command)
 
 ;;; my scheme config, paredit
 (autoload 'paredit-mode "paredit"
