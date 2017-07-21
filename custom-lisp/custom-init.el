@@ -197,23 +197,14 @@
 (when (file-exists-p (expand-file-name "custom-lisp/my-mysql-init.el" user-emacs-directory)) (require 'my-mysql-init))
 ;; Normallly this apears at the very end of the file, so that the feature isn't "provided" unless everything preceding it worked correctly
 
+;;; add web mode support for erb and html
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(setq web-mode-markup-indent-offset 2)
+
 ;;; my custom kbd
 (require 'my-keys-minor-mode)
-
-;;; my c develop environment setup
-;; (require 'my-c-init)
-;;; overwrite some kbd settings
-;; (progn
-;;   ;; modify ggtags some key
-;;   (require 'ggtags)
-;;   (define-key ggtags-navigation-map (kbd "M->") 'end-of-buffer)
-;;   (define-key ggtags-navigation-map (kbd "M-<") 'beginning-of-buffer))
-
-;; ;;; tab related, for overriding company config
-;; (define-key c-mode-map  (kbd "C-<tab>") 'company-complete)
-;; (define-key c++-mode-map (kbd "C-<tab>") 'company-complet)
-;; (define-key c-mode-map  (kbd "<tab>") 'indent-for-tab-command)
-;; (define-key c++-mode-map (kbd "<tab>") 'indent-for-tab-command)
 
 ;;; my scheme config, paredit
 (autoload 'paredit-mode "paredit"
