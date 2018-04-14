@@ -218,4 +218,19 @@
 
 (require 'coffee-mode)
 
+;;; c setup
+;;; irony complete function
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;;; rtags
+(require 'rtags)
+(setq rtags-path "/home/wpzero/workspace/c_workspace/rtags/bin")
+
 (provide 'custom-init)
