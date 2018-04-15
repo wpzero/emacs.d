@@ -232,5 +232,19 @@
 ;;; rtags
 (require 'rtags)
 (setq rtags-path "/home/wpzero/workspace/c_workspace/rtags/bin")
+(setq rtags-autostart-diagnostics t)
+(setq rtags-display-result-backend 'ivy)
+
+;;; Rtags kbd config
+(define-key c++-mode-map (kbd "M-.") 'rtags-find-symbol-at-point)
+(define-key c++-mode-map (kbd "M-,") 'rtags-location-stack-back)
+(define-key c++-mode-map (kbd "C-.") 'rtags-find-references)
+
+(define-key c-mode-map (kbd "M-.") 'rtags-find-symbol-at-point)
+(define-key c-mode-map (kbd "M-,") 'rtags-location-stack-back)
+(define-key c-mode-map (kbd "C-.") 'rtags-find-references)
+
+;;; Add etags table, auto add
+(require 'etags-table)
 
 (provide 'custom-init)
