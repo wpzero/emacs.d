@@ -225,10 +225,7 @@
 ;;; dired CONFIG
 (require 'my-dired-config)
 
-;;; Multi-term START
-(require 'multi-term)
-(setq multi-term-program "/bin/zsh")
-(global-set-key (kbd "C-c C-t") 'multi-term)
-;;; Multi-term END
+;;; multi-term CONFIG
+(require 'my-multi-term)
 
 (provide 'custom-init)
