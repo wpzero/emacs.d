@@ -17,4 +17,11 @@
 (define-key term-mode-map (kbd "C-c C-k") 'term-char-mode)
 (define-key term-raw-map (kbd "C-c C-k") 'term-char-mode)
 
+(add-hook 'term-mode-hook (lambda () (progn (define-key term-raw-map (kbd "C-y") 'term-paste)
+                                       (define-key term-mode-map (kbd "C-y") 'term-paste)
+                                       (define-key term-mode-map (kbd "C-c C-j") 'term-line-mode)
+                                       (define-key term-raw-map (kbd "C-c C-j") 'term-line-mode)
+                                       (define-key term-mode-map (kbd "C-c C-k") 'term-char-mode)
+                                       (define-key term-raw-map (kbd "C-c C-k") 'term-char-mode))))
+
 (provide 'my-multi-term)
