@@ -28,4 +28,7 @@
 (require 'etags-table)
 ;;; C CONFIG END
 
+;;; c style
+(setq c-default-style "linux"
+      c-basic-offset 4)
 (provide 'my-c-config)

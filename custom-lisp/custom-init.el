@@ -136,15 +136,15 @@
   "Open current file with sudo"
   t)
 
-(autoload 'pbcopy "custom-autoload"
+(autoload 'xcopy "custom-autoload"
   "Copy region text to system clipboard"
   t)
 
-(autoload 'pbcut "custom-autoload"
+(autoload 'xcut "custom-autoload"
   "Cut region text to system clipboard"
   t)
 
-(autoload 'pbpaste "custom-autoload"
+(autoload 'xpaste "custom-autoload"
   "Past clipboard"
   t)
 
