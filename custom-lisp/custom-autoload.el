@@ -177,22 +177,22 @@ Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»�
           (sudo-find-file file))
       (message "current buffer is not a file"))))
 
-(defun pbcopy ()
+(defun xcopy ()
   "Copy region text to system clipboard"
   (interactive)
-  (call-process-region (point) (mark) "pbcopy")
+  (call-process-region (point) (mark) "xclip" nil nil nil "-selection" "clipboard")
   (setq deactivate-mark t))
 
-(defun pbcut ()
+(defun xcut ()
   "Cut region text to system clipboard"
   (interactive)
   (pbcopy)
   (delete-region (region-beginning) (region-end)))
 
-(defun pbpaste ()
+(defun xpaste ()
   "Paste clipboard text to emacs"
   (interactive)
-  (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+  (call-process-region (point) (if mark-active (mark) (point)) "xclip" t t nil "-o" "-selection" "clipboard"))
 
 (defun window-half-height ()
   (max 1 (/ (1- (window-height (selected-window))) 2)))
