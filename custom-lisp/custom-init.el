@@ -229,3 +229,19 @@
 (require 'my-multi-term)
 
 (provide 'custom-init)
+
+
+;;; react js setting
+;;; https://gist.github.com/CodyReichert/9dbc8bd2a104780b64891d8736682cea
+(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) ;; auto-enable for .js/.jsx files
+(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+
+(defun web-mode-init-hook ()
+  "Hooks for Web mode.  Adjust indent."
+  (setq web-mode-markup-indent-offset 4))
+
+(add-hook 'web-mode-hook  'web-mode-init-hook)
+
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
