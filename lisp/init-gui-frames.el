@@ -84,6 +84,13 @@
 (require-package 'default-text-scale)
 (add-hook 'after-init-hook 'default-text-scale-mode)
 
+;; Set default font and size
+(when (display-graphic-p)
+  ;; Set a smaller default font
+  (set-face-attribute 'default nil :family "Monaco" :height 110)
+  (set-face-attribute 'fixed-pitch nil :family "Monaco" :height 110)
+  (set-face-attribute 'variable-pitch nil :family "Helvetica" :height 120))
+
 
 
 (require-package 'disable-mouse)

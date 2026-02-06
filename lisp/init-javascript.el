@@ -6,17 +6,26 @@
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'typescript-mode)
 (maybe-require-package 'prettier-js)
+(maybe-require-package 'tsx-mode)
+(maybe-require-package 'add-node-modules-path)
+(maybe-require-package 'npm-mode)
 
 
 ;;; Basic js-mode setup
 
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|es6\\)\\(\\.erb\\)?\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode))
 
 (with-eval-after-load 'js
   (sanityinc/major-mode-lighter 'js-mode "JS")
   (sanityinc/major-mode-lighter 'js-jsx-mode "JSX"))
 
+(with-eval-after-load 'typescript-mode
+  (sanityinc/major-mode-lighter 'typescript-mode "TS"))
+
 (setq-default js-indent-level 2)
+(setq-default typescript-indent-level 2)
 
 
 
