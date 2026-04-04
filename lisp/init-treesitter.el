@@ -14,6 +14,11 @@
 ;; named and configured, so there could be different results. Some
 ;; common remappings are included below.
 
+(when (require 'treesit nil t)
+  (dolist (source '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+                    (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")))
+    (add-to-list 'treesit-language-source-alist source)))
+
 
 ;;; Enable built-in and pre-installed TS modes if the grammars are available
 
@@ -66,6 +71,7 @@ Return a list of languages seen along the way."
 ;; When there's js-ts-mode, we also prefer it to js2-mode
 (sanityinc/remap-ts-mode 'js2-mode 'js-ts-mode 'javascript)
 (sanityinc/remap-ts-mode 'clojurescript-mode 'clojurescript-ts-mode 'clojure)
+(sanityinc/remap-ts-mode 'typescript-mode 'typescript-ts-mode 'typescript)
 
 
 ;; Default

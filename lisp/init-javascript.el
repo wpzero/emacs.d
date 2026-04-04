@@ -6,16 +6,39 @@
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'typescript-mode)
 (maybe-require-package 'prettier-js)
-(maybe-require-package 'tsx-mode)
 (maybe-require-package 'add-node-modules-path)
 (maybe-require-package 'npm-mode)
 
 
 ;;; Basic js-mode setup
 
+(defun sanityinc/typescript-mode-for-file ()
+  "Enable the preferred major mode for TypeScript files."
+  (interactive)
+  (funcall
+   (if (and (fboundp 'treesit-ready-p)
+            (fboundp 'typescript-ts-mode)
+            (treesit-ready-p 'typescript t))
+       'typescript-ts-mode
+     (if (fboundp 'typescript-mode)
+         'typescript-mode
+       'js-mode))))
+
+(defun sanityinc/tsx-mode-for-file ()
+  "Enable the preferred major mode for TSX files."
+  (interactive)
+  (funcall
+   (if (and (fboundp 'treesit-ready-p)
+            (fboundp 'tsx-ts-mode)
+            (treesit-ready-p 'tsx t))
+       'tsx-ts-mode
+     (cond
+      ((fboundp 'typescript-mode) 'typescript-mode)
+      (t 'js-mode)))))
+
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|es6\\)\\(\\.erb\\)?\\'" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . sanityinc/typescript-mode-for-file))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . sanityinc/tsx-mode-for-file))
 
 (with-eval-after-load 'js
   (sanityinc/major-mode-lighter 'js-mode "JS")
@@ -24,8 +47,20 @@
 (with-eval-after-load 'typescript-mode
   (sanityinc/major-mode-lighter 'typescript-mode "TS"))
 
+(with-eval-after-load 'typescript-ts-mode
+  (sanityinc/major-mode-lighter 'typescript-ts-mode "TS"))
+
+(with-eval-after-load 'tsx-ts-mode
+  (sanityinc/major-mode-lighter 'tsx-ts-mode "TSX"))
+
 (setq-default js-indent-level 2)
 (setq-default typescript-indent-level 2)
+
+(when (maybe-require-package 'add-node-modules-path)
+  (dolist (hook '(typescript-mode-hook
+                  typescript-ts-mode-hook
+                  tsx-ts-mode-hook))
+    (add-hook hook 'add-node-modules-path)))
 
 
 
