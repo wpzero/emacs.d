@@ -87,9 +87,9 @@
 ;; Set default font and size
 (when (display-graphic-p)
   ;; Set a smaller default font
-  (set-face-attribute 'default nil :family "Monaco" :height 110)
-  (set-face-attribute 'fixed-pitch nil :family "Monaco" :height 110)
-  (set-face-attribute 'variable-pitch nil :family "Helvetica" :height 120))
+  (set-face-attribute 'default nil :family "Monaco" :height 100)
+  (set-face-attribute 'fixed-pitch nil :family "Monaco" :height 100)
+  (set-face-attribute 'variable-pitch nil :family "Helvetica" :height 110))
 
 
 

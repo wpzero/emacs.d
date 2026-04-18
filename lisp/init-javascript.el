@@ -12,6 +12,10 @@
 
 ;;; Basic js-mode setup
 
+(with-eval-after-load 'project
+  (dolist (marker '("package.json" "tsconfig.json" "jsconfig.json"))
+    (add-to-list 'project-vc-extra-root-markers marker)))
+
 (defun sanityinc/typescript-mode-for-file ()
   "Enable the preferred major mode for TypeScript files."
   (interactive)
